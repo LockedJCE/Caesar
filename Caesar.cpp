@@ -2,8 +2,30 @@
 #include <string>
 using namespace std;
 
-void encrypt(); // Function to encrypt text
-void decrypt(); // Function to decrypt text
+// Function to encrypt text
+void encrypt() {
+    string text;
+    int shift;
+
+    cout << "Enter the text to encrypt: ";
+    cin.ignore(); // clears input buffer
+    getline(cin, text); // reads whole line
+    cout << "Enter the shift value: ";
+    cin >> shift;
+
+    // encryption now
+    for (char &ch : text) {
+        if (isalpha(ch)) {
+            char offset = isupper(ch ? 'A' : 'a');
+            ch = (ch - offset + shift) % 26 + offset; // shifts charcter in bounds
+        }
+    }
+
+    cout << "Encrypted text: " << text << endl;
+}
+
+// Function to decrypt text
+void decrypt();
 
 int main() {
     int choice;
