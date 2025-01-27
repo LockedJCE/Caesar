@@ -6,10 +6,8 @@
 ## Description
 It's a simple tool demonstrating the Caesar Cipher to encrypt and decrypt messages.
 ## Table of Contents
-  * [Features](#features)
   * [Installation](#installation)
   * [Usage](#usage)
-  * [Credits](#credits)
   * [License](#license)
   * [Questions](#questions)
 
