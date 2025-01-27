@@ -13,11 +13,11 @@ void encrypt() {
     cout << "Enter the shift value: ";
     cin >> shift;
 
-    // encryption now
+    // Encryption now
     for (char &ch : text) {
         if (isalpha(ch)) {
-            char offset = isupper(ch ? 'A' : 'a');
-            ch = (ch - offset + shift) % 26 + offset; // shifts charcter in bounds
+            char offset = isupper(ch) ? 'A' : 'a';
+            ch = (ch - offset + shift) % 26 + offset; // Shift character within bounds
         }
     }
 
@@ -25,7 +25,26 @@ void encrypt() {
 }
 
 // Function to decrypt text
-void decrypt();
+void decrypt() {
+    string text;
+    int shift;
+    
+    cout << "Enter the text to decrypt: ";
+    cin.ignore(); // Clear input buffer
+    getline(cin, text); // Read the entire line
+    cout << "Enter the shift value: ";
+    cin >> shift;
+
+    // Perform decryption
+    for (char &ch : text) {
+        if (isalpha(ch)) {
+            char offset = isupper(ch) ? 'A' : 'a';
+            ch = (ch - offset - shift + 26) % 26 + offset; // Reverse the shift within bounds
+        }
+    }
+
+    cout << "Decrypted text: " << text << endl;
+}
 
 int main() {
     int choice;
